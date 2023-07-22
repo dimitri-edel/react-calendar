@@ -3,13 +3,11 @@ import Calendar from 'react-calendar';
 import './App.css';
 import 'react-calendar/dist/Calendar.css';
 import CalendarDay from './CalendarDay';
+import tasks from "./tasks.json";
 
 function App() {
     const [date, setDate] = useState(new Date())
-    let checker = new Array();
-    checker.push("hellow");
-    checker.push("me again");
-    
+        
 
     return (
         <div className="app">
@@ -20,7 +18,12 @@ function App() {
             <div className="text-center">
                 Selected date: {date.toDateString()}
             </div>
-            <CalendarDay selectedDate={date.toDateString()} objChecker={checker} />
+            <CalendarDay selectedDate={date.toDateString()} tasks={tasks["tasks"]} />
+            {/* {
+                tasks["tasks"].map(task=>{
+                    return <p>{task.name}</p>
+                })
+            } */}
         </div>
     )
 
